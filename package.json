@@ -1,0 +1,37 @@
+{
+  "name": "event-manaja",
+  "version": "1.0.0",
+  "description": "An event manager app built with GraphQL, NextJs and Redux",
+  "main": "server/index.js",
+  "scripts": {
+    "start:dev": "pm2 start --interpreter babel-node server/index.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/larrystone/event-manaja.git",
+  "keywords": [
+    "events",
+    "manager",
+    "graphQL",
+    "NextJs",
+    "Redux"
+  ],
+  "author": "Larrystone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larrystone/event-manaja/issues"
+  },
+  "homepage": "https://github.com/larrystone/event-manaja#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "pm2": "^2.10.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
+  }
+}
