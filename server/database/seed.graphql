@@ -1,0 +1,11 @@
+mutation {
+  createUser(data: {
+    name: "Super User"
+    email: "admin@user.com"
+    password: "Super123"
+    username: "super_user"
+    role: SUPER_ADMIN
+  }){
+    id
+  }
+}

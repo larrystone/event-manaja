@@ -1,0 +1,42 @@
+type User {
+  id: ID! @unique
+  name: String!
+  username: String! @unique
+  email: String! @unique
+  password: String!
+  profileImage: String
+  createdAt: DateTime!
+  centers: [Center!]! @relation(name: "UserOnCenter")
+  events: [Event!]! @relation(name: "UserOnEvent")
+  role: Role @default(value: "USER")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
+
+type Center {
+  id: ID! @unique
+  name: String!
+  description: String
+  capacity: Int!
+  facilities: String!
+  address: String!
+  imageUrl1: String!
+  imageUrl2: String!
+  phoneNo: String!
+  createdAt: DateTime!
+  owner: User! @relation(name: "UserOnCenter")
+}
+
+type Event {
+  id: ID! @unique
+  name: String!
+  description: String!
+  startDate: DateTime!
+  createdAt: DateTime!
+  endDate: DateTime!
+  owner: User! @relation(name: "UserOnEvent")
+}
