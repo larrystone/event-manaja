@@ -24,10 +24,14 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "pm2": "^2.10.3"
+    "dotenv": "^5.0.1",
+    "graphql-yoga": "^1.13.1",
+    "pm2": "^2.10.3",
+    "prisma-binding": "^1.5.18"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
