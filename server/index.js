@@ -1,22 +1,16 @@
 import { GraphQLServer } from 'graphql-yoga';
 import { Prisma } from 'prisma-binding';
 import dotenv from 'dotenv';
+import Query from './resolvers/Query';
+import Mutation from './resolvers/Mutation';
+import AuthPayload from './resolvers/AuthPayload';
 
 dotenv.config();
 
-const userDetails = `
-{
-  id
-  name
-  username
-  email
-  profileImage
-}`;
-
 const resolvers = {
-  Query: {
-    users: (root, args, context) => context.db.query.users({}, userDetails)
-  }
+  Query,
+  Mutation,
+  AuthPayload
 };
 
 const server = new GraphQLServer({

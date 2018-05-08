@@ -1,11 +1,52 @@
-# import User from "./generated/prisma.graphql"
+# import Role from "./generated/prisma.graphql"
 
 type Query {
-  user(id: String!): User!
-  users: [User!]!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
 }
 
 type Mutation {
-  createUser(data: UserCreateInput!): User!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  signIn(authName: String!, password: String!): AuthPayload
+  signUp(name: String!, email: String!, username: String!, password: String!): AuthPayload
+  # editProfile(): User!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  username: String!
+  email: String!
+  profileImage: String
+  createdAt: DateTime!
+  centers(where: CenterWhereInput, orderBy: CenterOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SimpleCenter!]
+  events(where: EventWhereInput, orderBy: EventOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SimpleEvent!]
+  role: Role
+}
+
+
+type SimpleCenter {
+  id: ID!
+  name: String!
+  description: String
+  capacity: Int!
+  facilities: String!
+  address: String!
+  imageUrl1: String!
+  imageUrl2: String!
+  phoneNo: String!
+  createdAt: DateTime!
+}
+
+type SimpleEvent {
+  id: ID!
+  name: String!
+  description: String!
+  startDate: DateTime!
+  createdAt: DateTime!
+  endDate: DateTime!
 }
